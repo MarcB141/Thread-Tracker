@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thread Tracker</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+  <main>
+    <section id="current" class="current">
+      <p id="no-item" class="muted" hidden>Select a message to track its thread.</p>
+
+      <div id="this-thread" hidden>
+        <p id="subject" class="subject"></p>
+        <p class="status-line"><span id="dot" class="dot"></span><span id="status-text"></span></p>
+
+        <div class="actions">
+          <button id="track-btn" class="btn primary" hidden>Track this thread</button>
+          <button id="close-btn" class="btn primary" hidden>Close thread</button>
+          <button id="reopen-btn" class="btn" hidden>Reopen thread</button>
+          <button id="forget-btn" class="btn quiet" hidden>Stop tracking</button>
+        </div>
+
+        <div id="note-wrap" hidden>
+          <label for="note" class="field-label">Note</label>
+          <textarea id="note" rows="2" maxlength="200" placeholder="Waiting on pricing from Sam"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <p id="msg" class="msg" role="status" hidden></p>
+
+    <section>
+      <h2>Open <span id="open-count" class="count"></span></h2>
+      <ul id="open-list" class="list"></ul>
+      <p id="open-empty" class="muted" hidden>Nothing open. Track a thread to see it here.</p>
+    </section>
+
+    <section id="closed-section">
+      <details>
+        <summary>Closed <span id="closed-count" class="count"></span></summary>
+        <ul id="closed-list" class="list"></ul>
+        <button id="clear-closed-btn" class="btn quiet" hidden>Clear closed threads</button>
+      </details>
+    </section>
+  </main>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>
